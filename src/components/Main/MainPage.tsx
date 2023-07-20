@@ -1,12 +1,12 @@
 import ModeToggle from "../toggler/ModeToggle";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { SiLeetcode } from "react-icons/si";
-import Project from "../Project";
+import Projects from "../Projects";
 
 export default function MainPage() {
   return (
     <body>
-      <div className="h-screen bg-white dark:bg-black">
+      <div className="h-screen bg-emerald-50 dark:bg-black">
         <ModeToggle />
         <div className="mx-auto px-6 py-12 font-sans selection:bg-emerald-500">
           <div className="lg:flex lg:justify-between lg:gap-4">
@@ -63,7 +63,7 @@ export default function MainPage() {
                 </div>
               </div>
             </header>
-            <main className="scroll-smooth lg:w-1/2 text-gray-600 dark:text-gray-300 overflow-scroll">
+            <main className="scroll-smooth lg:w-1/2 text-gray-600 dark:text-gray-300 ">
               <div className="lg:py-24 lg:pr-60">
                 <section id="about">
                   <h1 className="text-3xl font-bold text-emerald-600">
@@ -106,13 +106,7 @@ export default function MainPage() {
                     My Recent Projects
                   </h1>
                   <hr className="border-emerald-600" />
-                  <Project
-                    title="title1"
-                    imageLink="blabla"
-                    description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, molestias, quae illum ipsam vel architecto ut, error esse beatae quibusdam illo! Rerum ipsum ipsam dolores nemo quam eum esse doloremque."
-                    projectLink="blabla"
-                    skills={["React", "TypeScript"]}
-                  />
+                  <Projects />
                 </section>
               </div>
             </main>
