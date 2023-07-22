@@ -56,7 +56,7 @@ export default function Skills() {
         <Icon iconName="devicon-html5-plain colored" name="HTML5" />
         <Icon iconName="devicon-css3-plain colored" name="CSS3" />
         <Icon iconName="devicon-react-original colored" name="React" />
-        <Icon iconName="devicon-nextjs-original colored" name="Next.js" />
+        <Icon iconName="devicon-nextjs-original" name="Next.js" />
         <Icon iconName="devicon-nodejs-plain colored" name="Node.js" />
         <Icon iconName="devicon-mongodb-plain colored" name="MongoDB" />
         <Icon iconName="devicon-mysql-plain colored" name="MySQL" />
@@ -77,7 +77,7 @@ export default function Skills() {
       </div>
       <div className="flex flex-wrap py-2 mx-1 gap-y-1">
         <Icon iconName="devicon-git-plain colored" name="Git" />
-        <Icon iconName="devicon-github-original colored" name="GitHub" />
+        <Icon iconName="devicon-github-original" name="GitHub" />
       </div>
     </div>
   );

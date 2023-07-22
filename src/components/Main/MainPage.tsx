@@ -4,6 +4,7 @@ import { SiLeetcode } from "react-icons/si";
 import Skills from "../Skills";
 import Projects from "../Projects";
 import InteractiveName from "../InteractiveName";
+import MyTypography from "../MyTypography";
 
 export default function MainPage() {
   return (
@@ -20,10 +21,7 @@ export default function MainPage() {
                   <h2 className="text-2xl font-light text-black dark:text-white my-4">
                     Computer Science Undergraduate
                   </h2>
-                  <p className="text-lg font-normal text-gray-600 dark:text-gray-300 ">
-                    I enjoy learning new technologies and creating software with
-                    a lasting impact.
-                  </p>
+                  <MyTypography />
                   <div id="links" className="h-40"></div>
                   <div id="icons" className="flex flex-row">
                     <a
@@ -116,6 +114,12 @@ export default function MainPage() {
                     </h1>
                     <hr className="border-emerald-600" />
                     <Skills />
+                  </section>
+                  <section id="leetcode">
+                    <h1 className="text-3xl font-bold text-emerald-600">
+                      My LeetCode Progress
+                    </h1>
+                    <hr className="border-emerald-600" />
                   </section>
                 </div>
               </main>
