@@ -1,7 +1,9 @@
 import ModeToggle from "../toggler/ModeToggle";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { SiLeetcode } from "react-icons/si";
+import Skills from "../Skills";
 import Projects from "../Projects";
+import InteractiveName from "../InteractiveName";
 
 export default function MainPage() {
   return (
@@ -13,9 +15,8 @@ export default function MainPage() {
             <div className="lg:flex lg:justify-between lg:gap-4 lg:max-h-screen">
               <header className="lg:sticky lg:top-0 lg:flex lg:w-1/2 lg:flex-control lg:justify-between lg:py-24 lg:max-h-screen">
                 <div className="lg:pl-60">
-                  <h1 className="text-5xl font-bold text-emerald-600">
-                    Elijah Chia
-                  </h1>
+                  <InteractiveName />
+
                   <h2 className="text-2xl font-light text-black dark:text-white my-4">
                     Computer Science Undergraduate
                   </h2>
@@ -64,7 +65,7 @@ export default function MainPage() {
                   </div>
                 </div>
               </header>
-              <main className=" lg:w-1/2 text-gray-600 dark:text-gray-300 overflow-auto lg:max-h-2/3">
+              <main className=" lg:w-1/2 text-gray-600 dark:text-gray-300 overflow-auto lg:max-h-2/3 no-scrollbar">
                 <div className="lg:py-24 lg:pr-60 lg:max-h-2/3">
                   <section id="about" className="scroll-mt-16 lg:scroll-mt-24">
                     <h1 className="text-3xl font-bold text-emerald-600">
@@ -108,6 +109,13 @@ export default function MainPage() {
                     </h1>
                     <hr className="border-emerald-600" />
                     <Projects numProjects={4} />
+                  </section>
+                  <section id="skills">
+                    <h1 className="text-3xl font-bold text-emerald-600">
+                      My Skills
+                    </h1>
+                    <hr className="border-emerald-600" />
+                    <Skills />
                   </section>
                 </div>
               </main>
