@@ -7,3 +7,9 @@ TODOS
 - [ ] Add links which scroll to different sections
 
 - [ ] Make website more responsive to smaller screens (especially the light mode toggler)
+
+- [ ] Change loading animation for projects to tailwind animation
+
+- [ ] Add loading animation for leetcode section
+
+- [ ] Make resume button work
