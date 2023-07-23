@@ -58,6 +58,7 @@ export default function Skills() {
         <Icon iconName="devicon-react-original colored" name="React" />
         <Icon iconName="devicon-nextjs-original" name="Next.js" />
         <Icon iconName="devicon-nodejs-plain colored" name="Node.js" />
+        <Icon iconName="devicon-express-original" name="Express.js" />
         <Icon iconName="devicon-mongodb-plain colored" name="MongoDB" />
         <Icon iconName="devicon-mysql-plain colored" name="MySQL" />
         <Icon iconName="devicon-docker-plain colored" name="Docker" />

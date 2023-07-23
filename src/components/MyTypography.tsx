@@ -19,5 +19,4 @@ export default function MyTypography(): JSX.Element {
       </Typist>
     </div>
   );
-  //className="text-lg font-normal text-gray-600 dark:text-gray-300 "
 }

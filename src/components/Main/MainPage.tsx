@@ -5,10 +5,12 @@ import Skills from "../Skills";
 import Projects from "../Projects";
 import InteractiveName from "../InteractiveName";
 import MyTypography from "../MyTypography";
+import LeetCode from "../LeetCode";
+import { BsArrowUpRight } from "react-icons/bs";
 
 export default function MainPage() {
   return (
-    <body className="overscroll-none">
+    <body>
       <div className="relative">
         <div className="lg:max-h-screen bg-emerald-50 dark:bg-black ">
           <ModeToggle />
@@ -120,7 +122,89 @@ export default function MainPage() {
                       My LeetCode Progress
                     </h1>
                     <hr className="border-emerald-600" />
+                    <LeetCode />
                   </section>
+                  <section id="resume" className="mt-4 mb-4">
+                    <h1 className="text-3xl font-bold text-emerald-600">
+                      Others
+                    </h1>
+                    <hr className="border-emerald-600" />
+                    <div className="flex flex-col items-start px-2 py-4">
+                      <button className="group bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-500 hover:to-teal-500 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full mb-1">
+                        See my résumé
+                        <BsArrowUpRight
+                          size={15}
+                          className="dark:text-white text-black inline-block ml-1 mb-1
+                            group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        />
+                      </button>
+                      <a
+                        href="https://elijahchia.vercel.app"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <button className="group bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-500 hover:to-teal-500 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full my-1">
+                          See my first website!
+                          <BsArrowUpRight
+                            size={15}
+                            className=" dark:text-white text-black inline-block ml-1 mb-1
+                              group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                          />
+                        </button>
+                      </a>
+                    </div>
+                  </section>
+                  <hr className="border-gray-400" />
+                  <footer className="pt-2">
+                    <p className="text-sm">
+                      Built by Elijah using{" "}
+                      <a
+                        href="https://nextjs.org/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-black dark:text-white font-semibold hover:text-emerald-400"
+                      >
+                        Next.js
+                      </a>{" "}
+                      and{" "}
+                      <a
+                        href="https://tailwindcss.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-black dark:text-white font-semibold hover:text-emerald-400"
+                      >
+                        Tailwind CSS
+                      </a>
+                      , deployed with{" "}
+                      <a
+                        href="https://vercel.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-black dark:text-white font-semibold hover:text-emerald-400"
+                      >
+                        Vercel
+                      </a>{" "}
+                      and shared on{" "}
+                      <a
+                        href="https://github.com/Elijah5399/PersonalWebsiteV2"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-black dark:text-white font-semibold hover:text-emerald-400"
+                      >
+                        GitHub
+                      </a>
+                      . Inspired by{" "}
+                      <a
+                        href="https://brittanychiang.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-black dark:text-white font-semibold hover:text-emerald-400"
+                      >
+                        brittanychiang.com
+                      </a>
+                      .
+                    </p>
+                  </footer>
                 </div>
               </main>
             </div>
