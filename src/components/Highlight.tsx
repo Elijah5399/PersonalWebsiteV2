@@ -8,6 +8,7 @@ interface myMouse {
 
 export default function Highlight(): JSX.Element {
   const [mousePos, setMousePos] = useState<myMouse>({ left: 0, top: 0 });
+  const [isDark, setIsDark] = useState(false);
   useEffect(() => {
     window.addEventListener("mousemove", (event) => {
       setMousePos({
@@ -16,10 +17,17 @@ export default function Highlight(): JSX.Element {
       });
     });
   }, []);
+  useEffect(() => {
+    if (document.body.classList.contains("dark")) {
+      setIsDark(true);
+    } else {
+      setIsDark(false);
+    }
+  }, []);
 
   //var dark = document.body.classList.contains("dark");
 
-  if (document.body.classList.contains("dark")) {
+  if (isDark) {
     return (
       <div
         className="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute"

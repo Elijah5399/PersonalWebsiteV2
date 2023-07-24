@@ -76,10 +76,10 @@ export default function MainPage() {
                     </h1>
                     <hr className="border-emerald-600" />
                     <p className="text-lg mt-4">
-                      I'm currently a Year 2 student studying Computer Science
-                      at the National University of Singapore. I've spent the
-                      past few years learning front-end and back-end web
-                      development, and found an interest in creating{" "}
+                      I&apos;m currently a Year 2 student studying Computer
+                      Science at the National University of Singapore. I&apos;ve
+                      spent the past few years learning front-end and back-end
+                      web development, and found an interest in creating{" "}
                       <span className="text-black font-semibold dark:text-white">
                         robust
                       </span>
@@ -90,12 +90,13 @@ export default function MainPage() {
                       web pages using different technologies.
                     </p>
                     <p className="text-lg mt-4">
-                      Having participated in multiple hackathons, I've also
+                      Having participated in multiple hackathons, I&apos;ve also
                       developed non-web applications and software, such as
                       telegram bots and executable Java applications. In the
-                      process, I've learnt the importance of developing
+                      process, I&apos;ve learnt the importance of developing
                       understandable, reusable code with good documentation, and
-                      I've developed a passion for making software which can{" "}
+                      I&apos;ve developed a passion for making software which
+                      can{" "}
                       <span className="text-black font-semibold dark:text-white">
                         impact lives
                       </span>
