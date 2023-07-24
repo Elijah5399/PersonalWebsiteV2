@@ -65,7 +65,7 @@ export default function MainPage() {
                   <div id="links" className="mt-2 mb-8 w-max">
                     <ul>
                       <li
-                        className="hover:cursor-pointer"
+                        className="hover:cursor-pointer py-0.5"
                         onClick={() => smoothScroller(abt.current)}
                       >
                         <div
@@ -89,7 +89,7 @@ export default function MainPage() {
                         </span>
                       </li>
                       <li
-                        className="hover:cursor-pointer"
+                        className="hover:cursor-pointer py-0.5"
                         onClick={() => smoothScroller(proj.current)}
                       >
                         <div
@@ -113,7 +113,7 @@ export default function MainPage() {
                         </span>
                       </li>
                       <li
-                        className="hover:cursor-pointer"
+                        className="hover:cursor-pointer py-0.5"
                         onClick={() => smoothScroller(sk.current)}
                       >
                         <div
@@ -137,7 +137,7 @@ export default function MainPage() {
                         </span>
                       </li>
                       <li
-                        className="hover:cursor-pointer"
+                        className="hover:cursor-pointer py-0.5"
                         onClick={() => smoothScroller(lc.current)}
                       >
                         <div

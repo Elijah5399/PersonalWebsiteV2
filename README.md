@@ -4,7 +4,7 @@ My personal website, made using Next.js and TypeScript. A work in progress!
 
 TODOS
 
-- [x] Add links which scroll to different sections
+- [ ] Replace API for leetcode with graphql query, and include contest data and recent submissions
 
 - [ ] Make website more responsive to smaller screens (especially the light mode toggler)
 
@@ -15,3 +15,5 @@ TODOS
 - [x] Make resume button work
 
 - [x] Highlight effect
+
+- [x] Add links which scroll to different sections
