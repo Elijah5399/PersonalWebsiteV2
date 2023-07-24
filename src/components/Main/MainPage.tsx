@@ -7,11 +7,14 @@ import InteractiveName from "../InteractiveName";
 import MyTypography from "../MyTypography";
 import LeetCode from "../LeetCode";
 import { BsArrowUpRight } from "react-icons/bs";
+import { useState } from "react";
+import Highlight from "../Highlight";
 
 export default function MainPage() {
   return (
     <body>
       <div className="relative">
+        <Highlight />
         <div className="lg:max-h-screen bg-emerald-50 dark:bg-black ">
           <ModeToggle />
           <div className="mx-auto px-6 font-sans min-h-screen lg:max-h-screen max-w-screen-xxl selection:bg-emerald-500">
@@ -130,14 +133,20 @@ export default function MainPage() {
                     </h1>
                     <hr className="border-emerald-600" />
                     <div className="flex flex-col items-start px-2 py-4">
-                      <button className="group bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-500 hover:to-teal-500 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full mb-1">
-                        See my résumé
-                        <BsArrowUpRight
-                          size={15}
-                          className="dark:text-white text-black inline-block ml-1 mb-1
+                      <a
+                        href="Elijah_Resume_120723.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <button className="group bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-500 hover:to-teal-500 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full mb-1">
+                          See my résumé
+                          <BsArrowUpRight
+                            size={15}
+                            className="dark:text-white text-black inline-block ml-1 mb-1
                             group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                        />
-                      </button>
+                          />
+                        </button>
+                      </a>
                       <a
                         href="https://elijahchia.vercel.app"
                         target="_blank"
@@ -192,15 +201,6 @@ export default function MainPage() {
                         className="text-black dark:text-white font-semibold hover:text-emerald-400"
                       >
                         GitHub
-                      </a>
-                      . Inspired by{" "}
-                      <a
-                        href="https://brittanychiang.com/"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-black dark:text-white font-semibold hover:text-emerald-400"
-                      >
-                        brittanychiang.com
                       </a>
                       .
                     </p>

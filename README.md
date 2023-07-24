@@ -12,4 +12,6 @@ TODOS
 
 - [ ] Add loading animation for leetcode section
 
-- [ ] Make resume button work
+- [x] Make resume button work
+
+- [x] Highlight effect
