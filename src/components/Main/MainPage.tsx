@@ -1,3 +1,5 @@
+"use client";
+
 import ModeToggle from "../toggler/ModeToggle";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { SiLeetcode } from "react-icons/si";
@@ -7,10 +9,43 @@ import InteractiveName from "../InteractiveName";
 import MyTypography from "../MyTypography";
 import LeetCode from "../LeetCode";
 import { BsArrowUpRight } from "react-icons/bs";
-import { useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Highlight from "../Highlight";
 
 export default function MainPage() {
+  const abt = useRef<HTMLElement>(null);
+  const proj = useRef<HTMLElement>(null);
+  const sk = useRef<HTMLElement>(null);
+  const lc = useRef<HTMLElement>(null);
+  const scrollContainer = useRef<HTMLElement>(null);
+  const [currSection, setCurrSection] = useState("about");
+
+  function smoothScroller(x: HTMLElement | null): void {
+    if (x !== null) {
+      x.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  useEffect(() => {
+    function elemChange() {
+      if (scrollContainer !== null && scrollContainer.current !== null) {
+        var currY = scrollContainer.current.scrollTop;
+        console.log("currY is: " + currY);
+        if (currY < 600) {
+          setCurrSection("about");
+        } else if (currY < 1500) {
+          setCurrSection("project");
+        } else if (currY < 1700) {
+          setCurrSection("skills");
+        } else {
+          setCurrSection("leetcode");
+        }
+      }
+    }
+    if (scrollContainer !== null && scrollContainer.current !== null) {
+      scrollContainer.current.addEventListener("scroll", elemChange);
+    }
+  }, []);
   return (
     <body>
       <div className="relative">
@@ -27,7 +62,106 @@ export default function MainPage() {
                     Computer Science Undergraduate
                   </h2>
                   <MyTypography />
-                  <div id="links" className="h-40"></div>
+                  <div id="links" className="mt-2 mb-8 w-max">
+                    <ul>
+                      <li
+                        className="hover:cursor-pointer"
+                        onClick={() => smoothScroller(abt.current)}
+                      >
+                        <div
+                          className={
+                            "transition-[width] duration-300 h-0.5 mb-1 inline-block " +
+                            (currSection === "about"
+                              ? "bg-black dark:bg-white w-20"
+                              : "bg-gray-700 dark:bg-gray-300 w-12")
+                          }
+                        ></div>
+                        <span
+                          className={
+                            "antialiased text-md tracking-widest " +
+                            (currSection === "about"
+                              ? "text-black dark:text-white font-bold"
+                              : "text-gray-700 dark:text-gray-300 ")
+                          }
+                        >
+                          {" "}
+                          About
+                        </span>
+                      </li>
+                      <li
+                        className="hover:cursor-pointer"
+                        onClick={() => smoothScroller(proj.current)}
+                      >
+                        <div
+                          className={
+                            "transition-[width] duration-300 h-0.5 mb-1 inline-block " +
+                            (currSection === "project"
+                              ? "bg-black dark:bg-white w-20"
+                              : "bg-gray-700 dark:bg-gray-300 w-12")
+                          }
+                        ></div>
+                        <span
+                          className={
+                            "antialiased text-md tracking-widest " +
+                            (currSection === "project"
+                              ? "text-black dark:text-white font-bold"
+                              : "text-gray-700 dark:text-gray-300 ")
+                          }
+                        >
+                          {" "}
+                          Projects
+                        </span>
+                      </li>
+                      <li
+                        className="hover:cursor-pointer"
+                        onClick={() => smoothScroller(sk.current)}
+                      >
+                        <div
+                          className={
+                            "transition-[width] duration-300 h-0.5 mb-1 inline-block " +
+                            (currSection === "skills"
+                              ? "bg-black dark:bg-white w-20"
+                              : "bg-gray-700 dark:bg-gray-300 w-12")
+                          }
+                        ></div>
+                        <span
+                          className={
+                            "antialiased text-md tracking-widest " +
+                            (currSection === "skills"
+                              ? "text-black dark:text-white font-bold"
+                              : "text-gray-700 dark:text-gray-300 ")
+                          }
+                        >
+                          {" "}
+                          Skills
+                        </span>
+                      </li>
+                      <li
+                        className="hover:cursor-pointer"
+                        onClick={() => smoothScroller(lc.current)}
+                      >
+                        <div
+                          className={
+                            "transition-[width] duration-300 h-0.5 mb-1 inline-block " +
+                            (currSection === "leetcode"
+                              ? "bg-black dark:bg-white w-20"
+                              : "bg-gray-700 dark:bg-gray-300 w-12")
+                          }
+                        ></div>
+                        <span
+                          className={
+                            "antialiased text-md tracking-widest " +
+                            (currSection === "leetcode"
+                              ? "text-black dark:text-white font-bold"
+                              : "text-gray-700 dark:text-gray-300 ")
+                          }
+                        >
+                          {" "}
+                          LeetCode
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
                   <div id="icons" className="flex flex-row">
                     <a
                       target="_blank"
@@ -68,9 +202,16 @@ export default function MainPage() {
                   </div>
                 </div>
               </header>
-              <main className=" lg:w-1/2 text-gray-600 dark:text-gray-300 overflow-auto lg:max-h-2/3 no-scrollbar">
+              <main
+                className="lg:w-1/2 text-gray-600 dark:text-gray-300 overflow-auto lg:max-h-2/3 no-scrollbar"
+                ref={scrollContainer}
+              >
                 <div className="lg:py-24 lg:pr-60 lg:max-h-2/3">
-                  <section id="about" className="scroll-mt-16 lg:scroll-mt-24">
+                  <section
+                    id="about"
+                    className="scroll-mt-16 lg:scroll-mt-24"
+                    ref={abt}
+                  >
                     <h1 className="text-3xl font-bold text-emerald-600">
                       About Me
                     </h1>
@@ -107,28 +248,28 @@ export default function MainPage() {
                       anime, and play sports.
                     </p>
                   </section>
-                  <section id="projects">
+                  <section id="projects" ref={proj}>
                     <h1 className="text-3xl font-bold text-emerald-600">
                       My Recent Projects
                     </h1>
                     <hr className="border-emerald-600" />
                     <Projects numProjects={4} />
                   </section>
-                  <section id="skills">
+                  <section id="skills" ref={sk}>
                     <h1 className="text-3xl font-bold text-emerald-600">
                       My Skills
                     </h1>
                     <hr className="border-emerald-600" />
                     <Skills />
                   </section>
-                  <section id="leetcode">
+                  <section id="leetcode" ref={lc}>
                     <h1 className="text-3xl font-bold text-emerald-600">
                       My LeetCode Progress
                     </h1>
                     <hr className="border-emerald-600" />
                     <LeetCode />
                   </section>
-                  <section id="resume" className="mt-4 mb-4">
+                  <section id="others" className="mt-4 mb-4">
                     <h1 className="text-3xl font-bold text-emerald-600">
                       Others
                     </h1>
