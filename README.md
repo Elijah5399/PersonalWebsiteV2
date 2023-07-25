@@ -10,6 +10,20 @@ My personal website, made using Next.js, Tailwind CSS and TypeScript.
 
 - Run `npm run dev` and go to localhost:3000 to view the website
 
+## Key features
+
+- Use of Octokit to obtain GitHub data
+
+- Responsive navbar
+
+- Two-column page layout
+
+- Dark-light mode
+
+- Highlight effect on mousehover
+
+- Retrieval and display of LeetCode data
+
 ## TODOS
 
 - [ ] Replace API for leetcode with graphql query, and include contest data and recent submissions

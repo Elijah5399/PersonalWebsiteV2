@@ -1,16 +1,16 @@
 "use client";
 
-import ModeToggle from "../toggler/ModeToggle";
+import ModeToggle from "./toggler/ModeToggle";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { SiLeetcode } from "react-icons/si";
-import Skills from "../Skills";
-import Projects from "../Projects";
-import InteractiveName from "../InteractiveName";
-import MyTypography from "../MyTypography";
-import LeetCode from "../LeetCode";
+import Skills from "./Skills";
+import Projects from "./Projects";
+import InteractiveName from "./InteractiveName";
+import MyTypography from "./MyTypography";
+import LeetCode from "./LeetCode";
 import { BsArrowUpRight } from "react-icons/bs";
 import { useRef, useState, useEffect } from "react";
-import Highlight from "../Highlight";
+import Highlight from "./Highlight";
 
 export default function MainPage() {
   const abt = useRef<HTMLElement>(null);
