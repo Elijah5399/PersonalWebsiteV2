@@ -64,11 +64,11 @@ export default function Projects({
       setErrors(error.message);
       console.error(error.message);
     }
-  }, []);
+  }, [numProjects]);
 
   useEffect(() => {
     fetchRepos();
-  }, []);
+  }, [fetchRepos]);
 
   return (
     <div>
