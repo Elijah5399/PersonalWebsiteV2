@@ -1,6 +1,6 @@
 # Personal Website V2
 
-My personal website, made using Next.js, Tailwind CSS and TypeScript.
+My personal website, made using Next.js, Tailwind CSS and TypeScript. (The react version is being deployed)
 
 ## To clone and run this project
 
