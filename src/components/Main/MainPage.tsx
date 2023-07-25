@@ -16,7 +16,6 @@ export default function MainPage() {
   const abt = useRef<HTMLElement>(null);
   const proj = useRef<HTMLElement>(null);
   const sk = useRef<HTMLElement>(null);
-  const lc = useRef<HTMLElement>(null);
   const scrollContainer = useRef<HTMLElement>(null);
   const [currSection, setCurrSection] = useState("about");
 
@@ -28,18 +27,17 @@ export default function MainPage() {
 
   useEffect(() => {
     function elemChange() {
-      if (scrollContainer !== null && scrollContainer.current !== null) {
-        var currY = scrollContainer.current.scrollTop;
-        console.log("currY is: " + currY);
-        if (currY < 600) {
-          setCurrSection("about");
-        } else if (currY < 1500) {
-          setCurrSection("project");
-        } else if (currY < 1700) {
-          setCurrSection("skills");
-        } else {
-          setCurrSection("leetcode");
-        }
+      const abt_bottom = abt.current?.getBoundingClientRect().bottom;
+      const proj_bottom = proj.current?.getBoundingClientRect().bottom;
+      if (abt_bottom === undefined || proj_bottom === undefined) {
+        return;
+      }
+      if (abt_bottom > 0) {
+        setCurrSection("about");
+      } else if (proj_bottom > 0) {
+        setCurrSection("project");
+      } else {
+        setCurrSection("skills");
       }
     }
     if (scrollContainer !== null && scrollContainer.current !== null) {
@@ -50,8 +48,8 @@ export default function MainPage() {
     <body>
       <div className="relative">
         <Highlight />
-        <div className="lg:max-h-screen bg-emerald-50 dark:bg-black ">
-          <ModeToggle />
+        <ModeToggle />
+        <div className="lg:max-h-screen bg-emerald-50 dark:bg-black pt-20 lg:pt-0">
           <div className="mx-auto px-6 font-sans min-h-screen lg:max-h-screen max-w-screen-xxl selection:bg-emerald-500">
             <div className="lg:flex lg:justify-between lg:gap-4 lg:max-h-screen">
               <header className="lg:sticky lg:top-0 lg:flex lg:w-1/2 lg:flex-control lg:justify-between lg:py-24 lg:max-h-screen">
@@ -62,7 +60,7 @@ export default function MainPage() {
                     Computer Science Undergraduate
                   </h2>
                   <MyTypography />
-                  <div id="links" className="mt-2 mb-8 w-max">
+                  <div id="links" className="mb-8 w-max hidden lg:block">
                     <ul>
                       <li
                         className="hover:cursor-pointer py-0.5"
@@ -136,33 +134,9 @@ export default function MainPage() {
                           Skills
                         </span>
                       </li>
-                      <li
-                        className="hover:cursor-pointer py-0.5"
-                        onClick={() => smoothScroller(lc.current)}
-                      >
-                        <div
-                          className={
-                            "transition-[width] duration-300 h-0.5 mb-1 inline-block " +
-                            (currSection === "leetcode"
-                              ? "bg-black dark:bg-white w-20"
-                              : "bg-gray-700 dark:bg-gray-300 w-12")
-                          }
-                        ></div>
-                        <span
-                          className={
-                            "antialiased text-md tracking-widest " +
-                            (currSection === "leetcode"
-                              ? "text-black dark:text-white font-bold"
-                              : "text-gray-700 dark:text-gray-300 ")
-                          }
-                        >
-                          {" "}
-                          LeetCode
-                        </span>
-                      </li>
                     </ul>
                   </div>
-                  <div id="icons" className="flex flex-row">
+                  <div id="icons" className="flex flex-row pb-10 pt-2">
                     <a
                       target="_blank"
                       rel="noreferrer"
@@ -262,7 +236,7 @@ export default function MainPage() {
                     <hr className="border-emerald-600" />
                     <Skills />
                   </section>
-                  <section id="leetcode" ref={lc}>
+                  <section id="leetcode">
                     <h1 className="text-3xl font-bold text-emerald-600">
                       My LeetCode Progress
                     </h1>
@@ -306,7 +280,7 @@ export default function MainPage() {
                     </div>
                   </section>
                   <hr className="border-gray-400" />
-                  <footer className="pt-2">
+                  <footer className="pt-2 pb-4">
                     <p className="text-sm">
                       Built by Elijah using{" "}
                       <a
@@ -344,7 +318,16 @@ export default function MainPage() {
                       >
                         GitHub
                       </a>
-                      .
+                      . Inspired by
+                      <a
+                        href="https://brittanychiang.com"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-black dark:text-white font-semibold hover:text-emerald-400"
+                      >
+                        {" "}
+                        brittanychiang.com
+                      </a>
                     </p>
                   </footer>
                 </div>

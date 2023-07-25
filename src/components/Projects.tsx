@@ -2,7 +2,6 @@
 import Project from "./Project";
 import { useState, useCallback, useEffect } from "react";
 import { Octokit } from "@octokit/core";
-import { InfinitySpin } from "react-loader-spinner";
 import { RiEmotionSadLine } from "react-icons/ri";
 
 //Use octokit to increase the API rate limit
@@ -10,7 +9,28 @@ const octokit = new Octokit({ auth: process.env.NEXT_PUBLIC_AUTH_KEY });
 const allReposURL = "/user/repos?sort=updated&direction=desc";
 const specificRepoURL = `/repos/${process.env.NEXT_PUBLIC_GITHUBUSERNAME}`;
 
-export default function Projects({ numProjects }: { numProjects: number }) {
+function LoadingProject(): JSX.Element {
+  return (
+    <div className="w-full grid grid-cols-6 pt-1 py-4">
+      <div className="col-start-1 col-span-1 h-fit my-1 flex flex-col">
+        <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded-2xl inline-block animate-pulse my-0.5"></div>
+        <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded-2xl inline-block animate-pulse my-0.5"></div>
+        <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded-2xl inline-block animate-pulse my-0.5"></div>
+      </div>
+      <div className="col-start-2 col-span-5 h-fit ml-4 flex flex-col mt-1">
+        <div className="h-6 w-60 bg-slate-200 dark:bg-slate-800 rounded-2xl inline-block animate-pulse my-0.5"></div>
+        <div className="h-12 w-full bg-slate-200 dark:bg-slate-800 rounded-2xl inline-block animate-pulse mt-2"></div>
+        <div className="h-6 w-8/12 bg-slate-200 dark:bg-slate-800 rounded-2xl inline-block animate-pulse mt-3"></div>
+      </div>
+    </div>
+  );
+}
+
+export default function Projects({
+  numProjects,
+}: {
+  numProjects: number;
+}): JSX.Element {
   //numProjects is the number of projects we retrieve from GitHub
   const [projectsArray, setProjectsArray] = useState<any[]>([]);
   const [retrieved, setRetrieved] = useState<boolean>(false);
@@ -30,7 +50,6 @@ export default function Projects({ numProjects }: { numProjects: number }) {
             `${specificRepoURL}/${repoName.name}`
           );
           updList.push(response.data);
-          //console.log("pushing data: " + JSON.stringify(response.data));
         }
       } catch (error: any) {
         setRetrieved(true);
@@ -53,12 +72,18 @@ export default function Projects({ numProjects }: { numProjects: number }) {
 
   return (
     <div>
-      {!retrieved && (
+      {!retrieved /*
         <div className="flex flex-col items-center py-4">
           <div className="pl-24">
             <InfinitySpin width="300" />
           </div>
           <p className="inline">Fetching projects from GitHub...</p>
+        </div> */ && (
+        <div className="flex flex-col">
+          <LoadingProject />
+          <LoadingProject />
+          <LoadingProject />
+          <LoadingProject />
         </div>
       )}
       {errors && (
@@ -70,16 +95,17 @@ export default function Projects({ numProjects }: { numProjects: number }) {
           </p>
         </div>
       )}
-      {projectsArray.map((proj) => (
-        <Project
-          key={proj.name}
-          title={proj.name}
-          description={proj.description}
-          projectLink={proj.svn_url}
-          langLink={proj.languages_url}
-          date={proj.pushed_at}
-        />
-      ))}
+      {retrieved &&
+        projectsArray.map((proj) => (
+          <Project
+            key={proj.name}
+            title={proj.name}
+            description={proj.description}
+            projectLink={proj.svn_url}
+            langLink={proj.languages_url}
+            date={proj.pushed_at}
+          />
+        ))}
     </div>
   );
 }

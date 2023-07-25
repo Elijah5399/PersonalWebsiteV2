@@ -8,7 +8,7 @@ export default function MyTypography(): JSX.Element {
     return new GraphemeSplitter().splitGraphemes(str);
   }
   return (
-    <div className="text-lg text-black dark:text-white font-bold h-16">
+    <div className="text-lg text-black dark:text-white font-bold h-14">
       <Typist typingDelay={100} splitter={splitter} loop={true}>
         The <span className="text-red-500">heart</span> ❤️ to want change,
         <Typist.Delay ms={1000} />

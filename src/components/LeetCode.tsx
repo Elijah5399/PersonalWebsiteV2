@@ -3,7 +3,7 @@ import { useEffect, useState, useCallback } from "react";
 import { InfinitySpin } from "react-loader-spinner";
 
 export default function LeetCode() {
-  const API = "https://leetcode-stats-api.herokuapp.com/ElijahChia";
+  const API = `https://leetcode-stats-api.herokuapp.com/${process.env.NEXT_PUBLIC_LEETCODE_USERNAME}`;
   const [data, setData] = useState<any>({});
   const [retrieved, setRetrieved] = useState(false);
   const [errors, setErrors] = useState("");
